@@ -1,1 +1,5 @@
 fastapi
+redis
+types-redis
+uvicorn
+mypy
