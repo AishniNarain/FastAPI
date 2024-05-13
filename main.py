@@ -1,5 +1,4 @@
-from fastapi import FastAPI, Request
-# from pydantic import BaseModel, Field
+from fastapi import FastAPI
 # from fastapi.exceptions import RequestValidationError
 # from fastapi.responses import PlainTextResponse
 
@@ -7,7 +6,7 @@ from fastapi import FastAPI, Request
 app = FastAPI()
 
 @app.get('/')
-def home():
+async def home():
     return {"msg":"Hello World!"}
 
 # class SomeDto(BaseModel):
