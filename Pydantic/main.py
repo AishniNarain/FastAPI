@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 
 app = FastAPI()
 
@@ -12,7 +12,7 @@ class Student(BaseModel):
     subjects : List[str] = []
 
 @app.get('/students')
-def display_students():
+async def display_students():
     data = {
         "id": 1,
         "name": "Aishni Narain",
@@ -21,4 +21,13 @@ def display_students():
     }
     s1 = Student(**data)
     return s1
+
+@app.post("/students/")
+# async def student_data(s1: Student):
+#     return s1
+
+@app.post("/students/")
+async def student_data(name:str=Body(...),
+marks:int=Body(...)):
+    return {"name":name,"marks": marks}
 
